@@ -9,3 +9,5 @@ RUN npm install
 
 # CMD is for when the Docker image is running in a container 
 CMD ["npm", "run", "start"]
+
+EXPOSE 3000

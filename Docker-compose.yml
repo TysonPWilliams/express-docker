@@ -6,8 +6,23 @@ services:
     env_file: .env
     environment:
       - DATABASE_URL=mongodb://mongo:27017/mycoolappdatabase
-      - PORT=3000
+    ports:
+      - 5432:3000
+      - 65535:3000
+      - 1025:3000
   mongo:
     image: mongo
+    ports:
+      - 54321:27017
+    volumes:
+      # - ./mongodbdata:/data/db
+      - mongodb-data:/data/db
+
+# Using volumes like this stores the data in a Docker-managed location, typically a hidden folder.
+# e.g. \\wsl$\docker-desktop-data\data\docker\volumes on Windows
+# or    /var/lib/docker/volumes on Linux-based systems
+volumes:
+  mongodb-data:
+    driver: local
 
     

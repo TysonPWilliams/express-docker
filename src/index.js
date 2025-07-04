@@ -30,6 +30,11 @@ app.get("/", (request, response) => {
 	});
 });
 
+app.use((request, response) => {
+	console.log("Request to path is not valid, path not found:" + request.path);
+	process.exit(1);
+});
+
 async function main(){
 	await mongoose.connect(DATABASE_URL);
 	console.log("Database connected");

@@ -11,3 +11,6 @@ RUN npm install
 CMD ["npm", "run", "start"]
 
 EXPOSE 3000
+
+HEALTHCHECK --interval=10s --retries=5 \ 
+    CMD wget http://localhost:3000/health || exit 1

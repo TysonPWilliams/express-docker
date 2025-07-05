@@ -30,10 +30,12 @@ app.get("/", (request, response) => {
 	});
 });
 
-app.use((request, response) => {
-	console.log("Request to path is not valid, path not found:" + request.path);
+// The below route is just if you're running in a container to check health
+app.use((req, res) => {
+	console.log("Request to path is not valid, path not found:" + req.path);
 	process.exit(1);
-});
+})
+
 
 async function main(){
 	await mongoose.connect(DATABASE_URL);

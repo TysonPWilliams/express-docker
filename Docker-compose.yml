@@ -10,11 +10,11 @@ services:
     environment:
     # Interpolated variables can have a fallback value using ":-"
       - DATABASE_URL=mongodb://mongo:27017/mycoolappdatabase-${NODE_ENV:-defaultenvironment}
-      - PORT=${PORT:-8080}
+      - PORT=${PORT:-5000}
     ports:
-      - 5432:${PORT:-8080}
-      - 65535:${PORT:-8080}
-      - 1025:${PORT:-8080}
+      - 5432:${PORT:-5000}
+      - 65535:${PORT:-5000}
+      - 1025:${PORT:-5000}
   mongo:
     image: mongo
     ports:

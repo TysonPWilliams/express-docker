@@ -36,6 +36,7 @@ app.use((req, res) => {
 	process.exit(1);
 })
 
+
 async function main(){
 	await mongoose.connect(DATABASE_URL);
 	console.log("Database connected");

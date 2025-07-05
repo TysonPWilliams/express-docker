@@ -2,15 +2,19 @@ name: Super Cool Compose Stack
 services:
   api:
     image: mysupercoolapp:latest-${NODE_ENV}
-    build: .
+    build: 
+      context: .
+      args:
+        - PORT=5555
     env_file: .env
     environment:
     # Interpolated variables can have a fallback value using ":-"
       - DATABASE_URL=mongodb://mongo:27017/mycoolappdatabase-${NODE_ENV:-defaultenvironment}
+      - PORT=${PORT:-5000}
     ports:
-      - 5432:3000
-      - 65535:3000
-      - 1025:3000
+      - 5432:${PORT:-5000}
+      - 65535:${PORT:-5000}
+      - 1025:${PORT:-5000}
   mongo:
     image: mongo
     ports:

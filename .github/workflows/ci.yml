@@ -5,10 +5,17 @@ on:
     branches:
       - main
 
+# Specify environment variables for ALL jobs in this file to use
+# env:
+#   DATABASE_URL: mongodb
+
 jobs:
   run_server_tests:
     name: Run ExpressJS App Tests
     runs-on: ubuntu-latest
+    # Specify environment variables for all STEPS in this job to use
+    # env:
+    #   DATABASE_URL: mongodb
     steps:
       # Checkout a copy of the repo contents
       - uses: actions/checkout@v4
@@ -24,6 +31,13 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Setup MongoDB
+        uses: supercharge/mongodb-github-action@1.12.0
+        with:
+          mongodb-version: 8
+
       - name: Run tests
         run: npm run test 
+        env:
+          DATABASE_URL: mongodb://localhost:27017
       

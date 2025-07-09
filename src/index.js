@@ -1,5 +1,5 @@
-const express = require("express");
 const mongoose = require("mongoose");
+const { app } = require("./server");
 
 
 // Require and immediately use vs require and save as variable
@@ -21,20 +21,9 @@ if (PORT == undefined){
 	PORT = 3000;
 }
 
-const app = express();
 
-app.get("/", (request, response) => {
-	console.log("Homepage of API requested!");
-	response.json({
-		message:"Hello, world!"
-	});
-});
 
-// The below route is just if you're running in a container to check health
-app.use((req, res) => {
-	console.log("Request to path is not valid, path not found:" + req.path);
-	process.exit(1);
-})
+
 
 
 async function main(){

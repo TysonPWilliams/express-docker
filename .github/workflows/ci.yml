@@ -1,0 +1,20 @@
+name: CI - Testing
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run_server_tests:
+    name: Run ExpressJS App Tests
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout a copy of the repo contents
+      - uses: actions/checkout@v4
+      # Set up NodeJS in the action runner instance
+      # ubuntu-latest has NodeJS v20 installed already, so we might not need actions/setup-node action?
+      - name: Install dependencies
+        run: npm install
+
+      

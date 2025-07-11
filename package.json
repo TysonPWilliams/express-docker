@@ -4,7 +4,8 @@
   "description": "Express app and MongoDB database all containerised.",
   "main": "index.js",
   "scripts": {
-    "start":"node src/index.js"
+    "start": "node src/index.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,9 @@
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "mongoose": "^8.16.0"
+  },
+  "devDependencies": {
+    "jest": "^30.0.4",
+    "supertest": "^7.1.3"
   }
 }

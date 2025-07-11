@@ -1,5 +1,7 @@
+require('dotenv').config();
 const request = require("supertest")
-const { app } = require("../src/server.js")
+const { app } = require("../src/server.js");
+const { default: mongoose } = require("mongoose");
 
 
 
@@ -12,6 +14,14 @@ app.get("/", (req, res) => {
     });
 });
 */
+
+beforeEach(async() => {
+    await mongoose.connect(process.env.DATABASE_URL)
+});
+
+afterEach(async() => {
+    await mongoose.disconnect()
+})
 
 test('should get a hello world message from the homepage', async () => {
 

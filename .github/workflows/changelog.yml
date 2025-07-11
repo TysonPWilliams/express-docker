@@ -13,6 +13,8 @@ jobs:
     name: Generate Changelog
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout the repo
+        uses: actions/checkout@v4
       - name: Release Changelog Builder
         id: changelog-builder-action
         uses: mikepenz/release-changelog-builder-action@v5

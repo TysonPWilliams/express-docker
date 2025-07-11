@@ -1,0 +1,17 @@
+name: Changelog Generation and Posting
+
+on:
+  workflow_dispatch:
+# successful run of ci.yml 
+
+jobs:
+  changelog_generator:
+    name: Generate Changelog
+    runs-on: ubuntu-latest
+    steps:
+      - name: Release Changelog Builder
+        id: changelog-builder-action
+        uses: mikepenz/release-changelog-builder-action@v5
+
+      - name: Log the changelog result
+        run: echo ${{ steps.changelog-builder-action.outputs.changelog }}

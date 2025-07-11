@@ -2,16 +2,22 @@ name: Changelog Generation and Posting
 
 on:
   workflow_dispatch:
+  push:
+    tags:
+      - "*"
 # successful run of ci.yml 
 
 jobs:
   changelog_generator:
+    if: startsWith(github.ref, 'refs/tags/')
     name: Generate Changelog
     runs-on: ubuntu-latest
     steps:
       - name: Release Changelog Builder
         id: changelog-builder-action
         uses: mikepenz/release-changelog-builder-action@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Log the changelog result
         run: echo ${{ steps.changelog-builder-action.outputs.changelog }}

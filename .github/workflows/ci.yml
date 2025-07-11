@@ -23,5 +23,5 @@ jobs:
 
             
             - name: Run tests
-              run: npm rust test
+              run: npm run test
 

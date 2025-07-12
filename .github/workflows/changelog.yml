@@ -19,6 +19,8 @@ jobs:
         - name: Release Changelog Builder
           id: changelog-builder-action
           uses: mikepenz/release-changelog-builder-action@v5
+          with:
+            mode: hybrid
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

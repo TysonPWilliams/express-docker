@@ -15,9 +15,12 @@ jobs:
     steps:
       - name: Checkout the repo
         uses: actions/checkout@v4
+
       - name: Release Changelog Builder
         id: changelog-builder-action
         uses: mikepenz/release-changelog-builder-action@v5
+        with:
+          mode: hybrid
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

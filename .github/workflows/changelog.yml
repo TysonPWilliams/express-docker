@@ -24,8 +24,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Log the changelog result
-        run: echo ${{ steps.changelog-builder-action.outputs.changelog }}
+      # - name: Log the changelog result
+      #   run: echo ${{ steps.changelog-builder-action.outputs.changelog }}
 
       - name: Log the changelog to Discord
         uses: tsickert/discord-webhook@v7.0.0

@@ -34,7 +34,7 @@ jobs:
           content: ${{ steps.changelog-builder-action.outputs.changelog }}
 
       - name: Write changelog to file
-        run: echo ${{ steps.changelog-builder-action.outputs.changelog }} >> CHANGELOG.md
+        run: echo "${{ steps.changelog-builder-action.outputs.changelog }}" >> CHANGELOG.md
 
       - name: Commit changelog to repo
         # Commit all changed files back to the repository

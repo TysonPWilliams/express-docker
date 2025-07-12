@@ -23,3 +23,9 @@ jobs:
 
       - name: Log the changelog result
         run: echo ${{ steps.changelog-builder-action.outputs.changelog }}
+
+      - name: Log the changelog to Discord
+        uses: tsickert/discord-webhook@v7.0.0
+        with:
+          webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          content: ${{ steps.changelog-builder-action.outputs.changelog }}

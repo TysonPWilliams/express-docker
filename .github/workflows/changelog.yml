@@ -41,3 +41,5 @@ jobs:
       - name: Commit changelog to repo
         # Commit all changed files back to the repository
         uses: stefanzweifel/git-auto-commit-action@v6
+        with:
+          branch: main

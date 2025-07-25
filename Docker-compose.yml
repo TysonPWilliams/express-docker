@@ -1,7 +1,7 @@
 name: Super Cool Compose Stack
 services:
   api:
-    image: mysupercoolapp:latest-${NODE_ENV}
+    image: mysupercoolapp:latest-${NODE_ENV:-dev}
     build: 
       context: .
       args:

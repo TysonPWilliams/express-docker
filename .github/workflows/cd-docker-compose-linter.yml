@@ -47,4 +47,4 @@ jobs:
         uses: thollander/actions-comment-pull-request@v3
         with:
           file-path: ./Docker-compose.yml
-          message: "Suggested fixes for the compose file are here:"
+          # message: "Suggested fixes for the compose file are here:"

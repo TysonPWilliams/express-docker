@@ -12,6 +12,9 @@ on:
     paths:
       - 'Docker-compose.yml'
 
+permissions: 
+  pull-requests: write 
+
 jobs:
   linter-job:
     runs-on: ubuntu-latest

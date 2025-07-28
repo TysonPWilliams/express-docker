@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: oct24-express-docker-cluster
+  labels:
+    app: oct24-express-docker-cluster
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: oct24-express-docker-cluster
+  template:
+    metadata:
+      labels:
+        app: oct24-express-docker-cluster
+    spec:
+      containers:
+      - name: oct24-express-docker-container
+        image: ghcr.io/alexstormwood/oct24-t2w11-express-docker:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: DATABASE_URL
+          value: replace-me-with-valid-connection-string

@@ -2,7 +2,7 @@ name: Render CD
 
 # Every time the repo updates, make a new Docker image.
 on:
-  push:
+  # push:
   workflow_dispatch:
 # You may want to do this per day instead though:
 # on:

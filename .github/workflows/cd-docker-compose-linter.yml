@@ -26,4 +26,4 @@ jobs:
         with:
           webhook-url: ${{ secrets.DISCORD_WEBHOOK_URL }}
           # content: ${{ steps.docker-compose-linter.outputs.GITHUB }}
-          content: $GITHUB_STEP_SUMMARY
+          content: echo "$GITHUB_STEP_SUMMARY"

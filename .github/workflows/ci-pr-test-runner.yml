@@ -77,7 +77,7 @@ jobs:
         id: fc
         with:
           issue-number: ${{ github.event.issue.number }}
-          comment-author: alexstormwood
+          comment-author: AlexStormwood
           body-includes: '!automerge'
 
       - run: |

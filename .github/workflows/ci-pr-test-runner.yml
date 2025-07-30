@@ -66,6 +66,9 @@ jobs:
     name: PR comment
     if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, '!automerge')}}
     runs-on: ubuntu-latest
+    permissions: 
+      pull-requests: write
+      contents: read
     steps:
       - run: |
           echo A comment on PR $NUMBER
@@ -87,6 +90,7 @@ jobs:
       - name: Apply a label to the PR to automerge
         if: ${{ github.event.comment.id == steps.fc.outputs.comment-id }}
         uses: actions-ecosystem/action-add-labels@v1
+        
         with:
           labels: automerge
           number: ${{ github.event.issue.number }}

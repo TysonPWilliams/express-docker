@@ -13,11 +13,11 @@ on:
       - 'src/**'
       - 'tests/**'
 
-permissions:
+permissions: 
   pull-requests: write
   contents: read
   actions: read
-  checks: write
+  checks: write 
 
 jobs:
   test-runner-job:
@@ -27,25 +27,28 @@ jobs:
         image: mongo
         ports:
           - 27017:27017
+
     steps:
+
       - uses: actions/checkout@v4
 
       - run: pwd
 
       - run: ls
+
       - uses: actions/setup-node@v4
         with:
-        # Version Spec of the version to use in SemVer notation.
-        # It also admits such aliases as lts/*, latest, nightly and canary builds
-        # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
-            node-version: 'latest'
+          # Version Spec of the version to use in SemVer notation.
+          # It also admits such aliases as lts/*, latest, nightly and canary builds
+          # Examples: 12.x, 10.15.1, >=10.15.0, lts/Hydrogen, 16-nightly, latest, node
+          node-version: 'latest'
 
       - run: npm install
 
       - run: npm run test
         env:
-          DATABSE_URL: mongodb://localhost:27017/pr-test-tunner-db
-
+          DATABASE_URL: mongodb://localhost:27017/pr-test-runner-db
+      
       - name: Handle the test reporting
         uses: dorny/test-reporter@v2
         if: ${{ !cancelled() }}

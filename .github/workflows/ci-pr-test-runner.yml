@@ -12,6 +12,9 @@ on:
     paths:
       - 'src/**'
       - 'tests/**'
+  issue_comment:
+    types:
+      - created
 
 permissions: 
   pull-requests: write
@@ -56,3 +59,15 @@ jobs:
           name: JEST tests
           path: reports/jest-*.xml
           reporter: jest-junit
+
+  pr_commented:
+    needs: ["test-runner-job"]
+    # This job only runs for pull request comments
+    name: PR comment
+    if: ${{ github.event.issue.pull_request && contains(github.event.comment.body, '!deploy')}}
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo A comment on PR $NUMBER
+        env:
+          NUMBER: ${{ github.event.issue.number }}

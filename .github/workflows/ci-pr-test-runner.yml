@@ -87,10 +87,17 @@ jobs:
           echo ${{ github.event.comment.id }}
           echo ${{ steps.fc.outputs.comment-id }}
 
-      - name: Apply a label to the PR to automerge
+      # - name: Apply a label to the PR to automerge
+      #   if: ${{ github.event.comment.id == steps.fc.outputs.comment-id }}
+      #   uses: actions-ecosystem/action-add-labels@v1
+      #   with:
+      #     labels: automerge
+      #     number: ${{ github.event.issue.number }}
+
+      - run: gh issue edit "$NUMBER" --add-label "$LABELS"
         if: ${{ github.event.comment.id == steps.fc.outputs.comment-id }}
-        uses: actions-ecosystem/action-add-labels@v1
-        
-        with:
-          labels: automerge
-          number: ${{ github.event.issue.number }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          LABELS: automerge

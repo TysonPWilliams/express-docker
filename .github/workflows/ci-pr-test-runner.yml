@@ -18,7 +18,7 @@ on:
 
 permissions: 
   pull-requests: write
-  contents: read
+  contents: write
   actions: read
   checks: write 
 
@@ -68,7 +68,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions: 
       pull-requests: write
-      contents: read
+      contents: write
     steps:
       - run: |
           echo A comment on PR $NUMBER

@@ -8,8 +8,8 @@ on:
 #  Specify environment variables for ALL jobs in this file to use
 # env:
 #   DATABASE_URL: mongodb
-permissions;
-  contents: read
+# permissions;
+#   contents: read
 
 jobs:
     run_server_tests:

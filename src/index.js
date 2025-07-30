@@ -21,11 +21,6 @@ if (PORT == undefined){
 	PORT = 3000;
 }
 
-
-
-
-
-
 async function main(){
 	await mongoose.connect(DATABASE_URL);
 	console.log("Database connected");

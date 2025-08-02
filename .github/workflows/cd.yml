@@ -4,6 +4,7 @@ name: Render CD
 on:
   # push:
   workflow_dispatch:
+  workflow_call:
 # You may want to do this per day instead though:
 # on:
 #  schedule:

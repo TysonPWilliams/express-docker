@@ -114,3 +114,6 @@ jobs:
     permissions:
       packages: write
       contents: read
+    secrets:
+      RENDER_DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
+      RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}

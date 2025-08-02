@@ -5,6 +5,13 @@ on:
   # push:
   workflow_dispatch:
   workflow_call:
+    secrets:
+      RENDER_DEPLOY_HOOK:
+        required: true
+      RENDER_API_KEY:
+        required: true
+
+
 # You may want to do this per day instead though:
 # on:
 #  schedule:

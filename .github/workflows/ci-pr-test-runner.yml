@@ -111,3 +111,6 @@ jobs:
   deployment_caller:
     needs: ["pr_commented"]
     uses: ./.github/workflows/cd.yml
+    permissions:
+      packages: write
+      contents: read
